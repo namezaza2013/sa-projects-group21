@@ -4,17 +4,21 @@ import lombok.*;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+
+import java.util.Collection;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-
+// import org.hibernate.engine.spi.CollectionEntry;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Data
@@ -74,10 +78,9 @@ public class Menu {
     //     this.nationID = nationID;
     // }
 
-    // @OneToMany(fetch = FetchType.EAGER, mappedBy = "menu")
-    // // @JoinColumn(name = "APPROPRIATION_ID", insertable = true)
-    // @JsonManagedReference
-    // private Collection<Appropriation> appropriationID;
+    @OneToMany(fetch = FetchType.EAGER, targetEntity = Appropriation.class)
+    @JoinColumn(name = "APPROPRIATION_ID", insertable = true)
+    private Collection<Appropriation> appropriationID;
     // public Collection<Appropriation> getAppropriationID() {
     //     return this.appropriationID;
     // }

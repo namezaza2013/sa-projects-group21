@@ -29,13 +29,13 @@ public class Appropriation {
     @Column(name="APPROPRIATION_ID",unique = true, nullable = true)
     private @NonNull Long id;
 
-    // @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    // @JoinColumn(name = "MENU_ID")
-    // private @NonNull Menu menuID;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "MENU_ID")
+    private @NonNull Menu menu;
 
-    // @ManyToOne(fetch = FetchType.EAGER)
-    // @JoinColumn(name = "APPROPRIATE_ID")
-    // private @NonNull Appropriate appropriateID;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "APPROPRIATE_ID")
+    private @NonNull Appropriate appropriateID;
 
     // @ManyToOne(fetch = FetchType.EAGER, targetEntity = Appropriate.class)
     // @JoinColumn(name = "APPROPRIATE_ID", insertable = true)

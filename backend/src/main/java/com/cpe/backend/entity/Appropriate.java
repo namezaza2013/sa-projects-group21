@@ -32,7 +32,7 @@ public class Appropriate {
     private @NonNull Long id;
     private @NonNull String appropriationName;
 
-    // @OneToMany(fetch = FetchType.EAGER , mappedBy = "appropriate")
-    // private Collection<Appropriation> appropriationID;
+    @OneToMany(fetch = FetchType.EAGER , mappedBy = "appropriate")
+    private Collection<Appropriation> appropriationID;
 
 }
