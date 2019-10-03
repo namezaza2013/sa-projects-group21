@@ -26,17 +26,17 @@ public class BackendApplication {
 	@Bean
 	ApplicationRunner init(MenuTypeRepository menuTypeRepository, NationRepository nationRepository) {
 		return args -> {
-			Stream.of("Other", "MainCouse", "Dessert", "Drinks").forEach(typeName -> {
-				MenuType menuType = new MenuType(); // สร้าง Object Customer
-				menuType.setTypeName(typeName); // set ชื่อ (name) ให้ Object ชื่อ Customer
-				menuTypeRepository.save(menuType); // บันทึก Objcet ชื่อ Customer
-			});
+			// Stream.of("Other", "MainCouse", "Dessert", "Drinks").forEach(typeName -> {
+			// 	MenuType menuType = new MenuType(); // สร้าง Object Customer
+			// 	menuType.setTypeName(typeName); // set ชื่อ (name) ให้ Object ชื่อ Customer
+			// 	menuTypeRepository.save(menuType); // บันทึก Objcet ชื่อ Customer
+			// });
 
-			Stream.of("Thai", "India", "American", "France","Chiness","Turkis").forEach(nationName -> {
-				Nation nation = new Nation(); // สร้าง Object Employee
-				nation.setNationName(nationName); // set ชื่อ (name) ให้ Object ชื่อ Employee
-				nationRepository.save(nation); // บันทึก Objcet ชื่อ Employee
-			});
+			// Stream.of("Thai", "India", "American", "France","Chiness","Turkis").forEach(nationName -> {
+			// 	Nation nation = new Nation(); // สร้าง Object Employee
+			// 	nation.setNationName(nationName); // set ชื่อ (name) ให้ Object ชื่อ Employee
+			// 	nationRepository.save(nation); // บันทึก Objcet ชื่อ Employee
+			// });
 
 			menuTypeRepository.findAll().forEach(System.out::println); // แสดง ข้อมูลทั้งหมดใน Entity Customer บน Terminal
 			nationRepository.findAll().forEach(System.out::println); // แสดง ข้อมูลทั้งหมดใน Entity Employee บน Terminal

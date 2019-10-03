@@ -51,7 +51,7 @@ public class MenuController {
         return menuRepository.findAll().stream().collect(Collectors.toList());
     }
 
-    @PostMapping("/menus/{menuName}/{menuType}/{nation}/{appropriation}/{prices}/{units}")
+    @PostMapping("/menus/{menuTypeID}/{nationID}/{appropriationID}/{menuName}/{menuPrice}/{menuUnits}")
     public Menu newMenu(Menu newMenu,
     @PathVariable long menuTypeID,
     @PathVariable long nationID,
@@ -74,13 +74,13 @@ public class MenuController {
         //     menuTypes.add(menuTypeRepository.findById(Long.parseLong(a)));
         // };
 
-        newMenu.setAppropriationId(appropriationRepository.findById(appropriationID));
-        newMenu.setNationId(nationRepository.findById(nationID));
-        newMenu.setMenuTypeID(menuTypeRepository.findById(menuTypeID));
+        // newMenu.setAppropriationId(appropriationRepository.findById(appropriationID));
+        // newMenu.setNationId(nationRepository.findById(nationID));
+        // newMenu.setMenuTypeID(menuTypeRepository.findById(menuTypeID));
         
-        newMenu.setMenuName(menuName);
-        newMenu.setMenuPrice(menuPrice);
-        newMenu.setMenuUnits(menuUnits);
+        // newMenu.setMenuName(menuName);
+        // newMenu.setMenuPrice(menuPrice);
+        // newMenu.setMenuUnits(menuUnits);
 
         return menuRepository.save(newMenu);
 
