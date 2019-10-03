@@ -26,15 +26,13 @@ public class Nation {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="NATION_SEQ")
     @Column(name="NATION_ID",unique = true, nullable = true)
     private @NonNull Long id;
-
-    @Column(name="NATION_NAME",unique = true, nullable = true)
     private @NonNull String natioNname;
-    public String getNationName() {
-        return this.natioNname;
-    }
-    public void setNationName(String natioNname) {
-        this.natioNname = natioNname;
-    }
+    // public String getNationName() {
+    //     return this.natioNname;
+    // }
+    // public void setNationName(String natioNname) {
+    //     this.natioNname = natioNname;
+    // }
 
     // @OneToMany(fetch = FetchType.EAGER)
     // private Collection<Menu> menuID;

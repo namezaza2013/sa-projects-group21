@@ -17,8 +17,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.FetchType;
 
 import com.cpe.backend.entity.Appropriate;
-import com.fasterxml.jackson.annotation.*;
-// import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Data
 @Entity
@@ -37,7 +35,6 @@ public class Appropriation {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "APPROPRIATE_ID")
-    // @JsonIgnore
     private @NonNull Appropriate appropriateID;
 
     // @ManyToOne(fetch = FetchType.EAGER, targetEntity = Appropriate.class)

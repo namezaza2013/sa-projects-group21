@@ -35,14 +35,12 @@ public class MenuType {
     // public void getMenuTypeID(Long id) {
     //     this.id = id;
     // }
-
-	@Column(name="TYPE_NAME",unique = true, nullable = true)
 	private @NonNull String typeName;
-	public String getTypeName() {
-        return this.typeName;
-    }
-    public void setTypeName(String typeName) {
-        this.typeName = typeName;
-	}
+	// public String getTypeName() {
+    //     return this.typeName;
+    // }
+    // public void setTypeName(String typeName) {
+    //     this.typeName = typeName;
+	// }
 
 }

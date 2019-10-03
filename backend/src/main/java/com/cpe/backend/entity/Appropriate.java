@@ -30,8 +30,6 @@ public class Appropriate {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="appropriate_seq")  
     @Column(name = "APPROPRIATE_ID", unique = true, nullable = true)
     private @NonNull Long id;
-
-    @Column(name="APPROPRIATIE_NAME",unique = true, nullable = true)
     private @NonNull String appropriationName;
 
     @OneToMany(fetch = FetchType.EAGER , mappedBy = "appropriate")

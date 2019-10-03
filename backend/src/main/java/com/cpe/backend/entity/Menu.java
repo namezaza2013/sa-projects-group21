@@ -84,7 +84,7 @@ public class Menu {
     // @JoinColumn(name = "APPROPRIATION_ID", insertable = true)
     @JsonManagedReference
     private Collection<Appropriation> appropriationID;
-    public Collection<Appropriation> getAppropriationId() {
+    public Collection<Appropriation> getAppropriationID() {
         return this.appropriationID;
     }
     public void setAppropriationId(Collection<Appropriation> appropriationID) {
