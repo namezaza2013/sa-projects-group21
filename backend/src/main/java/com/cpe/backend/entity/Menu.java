@@ -78,8 +78,8 @@ public class Menu {
     //     this.nationID = nationID;
     // }
 
-    @OneToMany(fetch = FetchType.EAGER, targetEntity = Appropriation.class)
-    @JoinColumn(name = "APPROPRIATION_ID", insertable = true)
+    @OneToMany(fetch = FetchType.EAGER, targetEntity = Appropriation.class, mappedBy = "menu")
+    // @JoinColumn(name = "APPROPRIATION_ID", insertable = true)
     private Collection<Appropriation> appropriationID;
     // public Collection<Appropriation> getAppropriationID() {
     //     return this.appropriationID;
