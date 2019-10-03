@@ -1,27 +1,17 @@
 package com.cpe.backend.entity;
 
 import lombok.*;
-
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-
-import java.util.Collection;
-
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-
-import com.cpe.backend.entity.MenuType;
-import com.cpe.backend.entity.Nation;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.cpe.backend.entity.Appropriation;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Data
 @Entity
@@ -29,9 +19,15 @@ import com.cpe.backend.entity.Appropriation;
 @Table(name="MENU")
 public class Menu {
 
+    @CrossOrigin(origins = "*")
+@Data
+@Entity
+@NoArgsConstructor
+@Table(name = "MENU")
+public class Menu {
     @Id
-    @SequenceGenerator(name="menulist_seq",sequenceName="menulist_seq")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="menulist_seq")
+    @SequenceGenerator(name = "MENU_SEQ", sequenceName = "MENU_SEQ")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MENU_SEQ")
     @Column(name = "MENU_ID", unique = true, nullable = true)
     private @NonNull Long id;
     // @Column(name = "menuName")
@@ -60,9 +56,9 @@ public class Menu {
     // }
 
 
-    // @ManyToOne(fetch = FetchType.EAGER, targetEntity = MenuType.class)
-    // @JoinColumn(name = "MENUTYPE_ID",unique = true, insertable = true)
-    // private MenuType menuTypeID;
+    @ManyToOne(fetch = FetchType.EAGER, targetEntity = MenuType.class)
+    @JoinColumn(name = "MENUTYPE_ID",unique = true, insertable = true)
+    private MenuType menuTypeID;
     // public MenuType getMenuTypeID() {
     //     return this.menuTypeID;
     // }
