@@ -38,15 +38,12 @@ public class MenuController {
     private final NationRepository nationRepository;
     @Autowired
     private final AppropriationRepository appropriationRepository;
-    @Autowired
-    private final AppropriateRepository appropriateRepository;
 
-    MenuController(MenuRepository menuRepository,MenuTypeRepository menuTypeRepository,NationRepository nationRepository,AppropriationRepository appropriationRepository,AppropriateRepository appropriateRepository) {
+    MenuController(MenuRepository menuRepository,MenuTypeRepository menuTypeRepository,NationRepository nationRepository,AppropriationRepository appropriationRepository) {
         this.menuRepository = menuRepository;
         this.menuTypeRepository = menuTypeRepository;
         this.nationRepository = nationRepository;
         this.appropriationRepository = appropriationRepository;
-        this.appropriateRepository = appropriateRepository;
     }
 
     @GetMapping("/Menu")
@@ -54,26 +51,39 @@ public class MenuController {
         return menuRepository.findAll().stream().collect(Collectors.toList());
     }
 
-    // @PostMapping("/menu/{menuName}/{menuType}/{nation}/{appropriation}/{prices}/{units}")
-    // public Menu newMenu(Menu newMenu,
-    // @PathVariable long menuTypId,
-    // @PathVariable long nationId,
-    // @PathVariable long appropriationId,
+    @PostMapping("/menus/{menuTypeID}/{nationID}/{appropriationID}/{menuName}/{menuPrice}/{menuUnits}")
+    public Menu newMenu(Menu newMenu,
+    @PathVariable long menuTypeID,
+    @PathVariable long nationID,
+    @PathVariable long appropriationID,
 
-    // @PathVariable String menuName,
-    // @PathVariable Integer menuPrice,
-    // @PathVariable Integer menuUnits) {
-  
+    @PathVariable String menuName,
+    @PathVariable Integer menuPrice,
+    @PathVariable Integer menuUnits) {
+        
+        // String[] arr = appropriationID.split(",",10);
+        // Collection<Appropriation> appro = null;
+        // for(String a : arr){
+        //     Appropriation appr = appropriationRepository.findById(Long.parseLong(a));
+        //     appro.add(appr);
+        // };
 
-    //     newMenu.setAppropriation(appropriationRepository.findById(appropriationId));
-    //     newMenu.setNation(nationRepository.findById(nationId));
-    //     newMenu.setMenuType(menuTypeRepository.findById(menuTypId));
+        // String[] menuTypeArr = menuType.split(",",10);
+        // Collection<MenuType> menuTypes = null;
+        // for(String a : menuTypeArr){
+        //     menuTypes.add(menuTypeRepository.findById(Long.parseLong(a)));
+        // };
 
-    //     newMenu.setMenuName(menuName);
-    //     newMenu.setMenuPrice(menuPrice);
-    //     newMenu.setMenuUnits(menuUnits);
-    //     return menuRepository.save(newMenu);
+        // newMenu.setAppropriationId(appropriationRepository.findById(appropriationID));
+        // newMenu.setNationId(nationRepository.findById(nationID));
+        // newMenu.setMenuTypeID(menuTypeRepository.findById(menuTypeID));
+        
+        // newMenu.setMenuName(menuName);
+        // newMenu.setMenuPrice(menuPrice);
+        // newMenu.setMenuUnits(menuUnits);
 
-    // }
+        return menuRepository.save(newMenu);
+
+    }
 
 }
