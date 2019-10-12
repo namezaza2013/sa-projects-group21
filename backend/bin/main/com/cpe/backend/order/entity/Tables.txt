@@ -1,0 +1,38 @@
+package com.cpe.backend.order.entity;
+
+import lombok.*;
+
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+
+import com.cpe.backend.order.entity.TableType;
+
+@Data
+@Entity
+@NoArgsConstructor
+@Table(name="Tables")
+public class Tables {
+    @Id
+    @SequenceGenerator(name="tables_seq",sequenceName="tables_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="tables_seq")
+    @Column(name = "TABLES_ID", unique = true, nullable = true)
+    private @NonNull Long id;
+
+    @Column(name = "TABLES_NAME")
+    private @NonNull String tableName;
+
+    @ManyToOne(fetch = FetchType.EAGER, targetEntity = TableType.class)
+    @JoinColumn(name = "TABLETYPE_ID", insertable = true)
+    private TableType tableType;
+}

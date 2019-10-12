@@ -1,7 +1,9 @@
 
 <p align="center">
+MDB-Vue-Free-5.8.0
   <a href="http://mdbootstrap.com/docs/vue/">
     <img width="500" src="https://mdbootstrap.com/img/Marketing/general/logo/huge/mdb-vue.png">
+    
   </a>
 </p>
 

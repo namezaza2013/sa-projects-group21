@@ -1,0 +1,63 @@
+/*
+package com.cpe.backend.order.entity;
+
+import lombok.*;
+
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
+import java.util.Collection;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+
+import com.cpe.backend.order.entity.MenuOrder;
+
+import com.fasterxml.jackson.annotation.*;
+// import com.cpe.backend.order.entity.Nation;
+// import com.cpe.backend.order.entity.Suitable;
+@Data
+@Entity
+@Setter
+@NoArgsConstructor
+@Table(name="Menu")
+public class Menu {
+
+    @Id
+    @SequenceGenerator(name="menu_list_seq",sequenceName="menu_list_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="menu_list_seq")
+    @Column(name = "MENU_LIST_ID", unique = true, nullable = true)
+    private @NonNull Long id;
+    @Column(name = "name")
+    private @NonNull String name;
+    @Column(name = "price")
+    private @NonNull Integer price;
+    @Column(name = "units")
+    private @NonNull Integer units;
+
+    @OneToMany(fetch = FetchType.EAGER ,mappedBy="menu")
+    // @JsonManagedReference
+    @JsonIgnore
+    private Collection<MenuOrder> menuOrder;
+
+    // @OneToMany(fetch = FetchType.EAGER, targetEntity = Menu_Type.class)
+    // @JoinColumn(name = "MENU_TYPE_ID", insertable = true)
+    // private Collection<Menu_Type> menu_type_id;
+
+    // @ManyToOne(fetch = FetchType.EAGER, targetEntity = Nation.class)
+    // @JoinColumn(name = "NATION_ID", insertable = true)
+    // private Nation nation_id;
+
+    // @ManyToOne(fetch = FetchType.EAGER, targetEntity = Suitable.class)
+    // @JoinColumn(name = "SUITABLE_ID", insertable = true)
+    // private Suitable suitable_id;
+
+
+}
+

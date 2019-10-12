@@ -1,0 +1,30 @@
+package com.cpe.backend.order.controller;
+
+import com.cpe.backend.order.entity.Tables;
+import com.cpe.backend.order.repository.TablesRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Collection;
+import java.util.stream.Collectors;
+import org.springframework.web.bind.annotation.CrossOrigin;
+
+@CrossOrigin(origins = "http://localhost:8080")
+@RestController
+public class TablesController {
+
+    @Autowired
+    private final TablesRepository tablesRepository;
+
+    public TablesController(TablesRepository tablesRepository) {
+        this.tablesRepository = tablesRepository;
+    }
+
+    @GetMapping("/getTables")
+    public Collection<Tables> Tables() {
+        return tablesRepository.findAll().stream().collect(Collectors.toList());
+    }
+
+}
