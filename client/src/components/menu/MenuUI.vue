@@ -73,8 +73,7 @@
         <!-- input with combobox -->
 
         <!-- input with textbox -->
-        <mdb-input 
-          class="my-content"
+        <mdb-input
           type="text" 
           v-model="menu.menuName" 
           size="lg" 
@@ -82,7 +81,6 @@
           outline 
         />
         <mdb-input 
-          class="my-content"
           type="text" 
           v-model="menu.menuPrice" 
           size="lg" 
@@ -90,14 +88,12 @@
           outline 
           />
         <mdb-input
-          class="my-content"
           type="text"
           v-model="menu.menuUnits"
           size="lg"
           label="จำนวน(เมนู/ชิ้น/ขวด)"
           outline
         />
-        
         <!-- input with textbox -->
 
         <!-- add bt -->
@@ -113,7 +109,7 @@
         <hr />
 
         <!-- showing data -->
-        <mdb-row class="my-content">
+        <mdb-row>
           <mdb-col>
             <br/>
             <mdb-tbl>
@@ -216,19 +212,16 @@ export default {
   },
 
   methods: {
+
     //ดึงข้อทูล menuType ใส่ combobox
     getMenuType() {
       let currentObj = this;
       http
         .get("/menuType")
-        .then(response => {
-          this.menuType = response.data;
-          console.log(this.menuType);
-        })
-        .catch(e => {
-          console.log(e);
-        });
+        .then(res => (this.menuType = res.data))
+        .catch(err => console.log(err));
     },
+
     //ดึงข้อทูล appropriate ใส่ combobox
     getAppropriate() {
       http
@@ -244,6 +237,8 @@ export default {
         .then(res => (this.nation = res.data))
         .catch(err => console.log(err));
     },
+
+    //ดึงข้อทูล menu ใส่ ตาราง
     getMenu() {
       http
         .get("/menu")
@@ -273,6 +268,7 @@ export default {
           alert("เกิดข้อผิดพลาด " + error);
         });
     },
+
     resetForm(){
       this.menu = {
         menuType: "-1",
@@ -307,15 +303,15 @@ export default {
   background-color: rgba(210, 128, 253, 0.9)
 }
 .my-content2{
-  background-color: rgba(255, 255, 255, 0.9)
+  background-color: rgba(255, 255, 255, 0.721)
 }
 .my-table{
   background-color:rgba(214, 175, 139, 0.699);
 }
 .my-tableheader{
-  background-color:rgba(214, 175, 139, 0.925);
+  background-color:rgb(214, 175, 139);
 }
 .my-border{
-  border-radius: 40px;
+  border-radius: 10px;
 }
 </style>
