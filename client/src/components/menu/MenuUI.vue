@@ -265,7 +265,7 @@ export default {
           console.log(currentObj);
         })
         .catch(function(error) {
-          alert("เกิดข้อผิดพลาด " + error);
+          alert("กรุณาบันทึกข้อมูลให้ครบถ้วน");
         });
     },
 
